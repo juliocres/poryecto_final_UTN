@@ -113,6 +113,7 @@ const server_contacts = [
         ]
     },
 ]
+//let ultimoIdAsignado = 4;
 
 function ContactContextProvider() {
     const [contacts, setContacts] = useState(server_contacts)
@@ -177,6 +178,42 @@ function ContactContextProvider() {
         )
     }
 
+let ultimoIdAsignado = 4;
+function createContact(name) {
+        
+        ultimoIdAsignado++; 
+
+        const new_contact = {
+            id: ultimoIdAsignado, 
+            name: name,
+            lastMessage: "Contacto nuevo",
+            messages: []
+        }
+
+        setContacts([...contacts, new_contact])
+    }
+
+    function deleteContactById (delete_contact){
+        const contact_delete_id = contacts.filter(
+            (contact) => String(contact.id) !== String(delete_contact)
+        )
+        setContacts(contact_delete_id)
+    }
+
+    function updateContactById (contact_id, newName){
+        const update_contact = contacts.map(
+            (contact) => {
+                if(contact.id === Number(contact_id)) {
+                    return {
+                        ...contact,
+                        name :newName
+
+                    }
+                }
+                return contact
+            })
+        setContacts (update_contact)
+    }
     /* 
     createContact
     deleteContactById
@@ -191,7 +228,10 @@ function ContactContextProvider() {
         contact_selected,
         deleteMessageById,
         createMessage,
-        deleteAllMessages
+        deleteAllMessages,
+        createContact,
+        deleteContactById,
+        updateContactById
     }
     return (
         <ContactContext.Provider value={provider_values}>
