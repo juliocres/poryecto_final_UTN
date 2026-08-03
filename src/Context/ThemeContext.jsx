@@ -1,11 +1,8 @@
-/* 
-La idea es centralizar el manejo de estado de tema de color de la aplicacion en este archivo
-*/
 
 import { createContext, useState } from "react";
 
 
-//Sirve para declarar contextos
+
 const ThemeContext = createContext()
 
 

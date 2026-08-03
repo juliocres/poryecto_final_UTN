@@ -3,35 +3,40 @@ import MessagesList from "./MessagesList"
 import { ContactContext } from "../../Context/ContactContext"
 
 function Messages() {
-
-
-    const {contact_selected, deleteMessageById, deleteAllMessages, createMessage} = useContext(ContactContext)
+    const {contact_selected, createMessage} = useContext(ContactContext)
+    const [messageText, setMessageText] = useState("")
 
     function handleCreateMessage (event) {
         event.preventDefault()
-        createMessage(event.target.message.value, true)
-
-        //Resetea el form
-        event.target.reset()
+        if (!messageText.trim()) return
+        createMessage(messageText.trim(), true)
+        setMessageText("")
     }
+
     return (
-        <div>
-            <button onClick={deleteAllMessages}>Eliminar historial</button>
-            <h1>Mensajes:</h1>
-            <MessagesList  />
-
-
-            <form onSubmit={handleCreateMessage}>
-                <label htmlFor="message">Envia un mensaje:</label>
-                <textarea id="message" name="message" />
-                <button type="submit">Enviar</button>
-            </form>
-
-        </div>
+        <>
+            <div className="chat-messages">
+                {contact_selected && contact_selected.messages.length === 0 ? (
+                    <div className="empty-messages">
+                        <p>No hay mensajes aún. Envía un mensaje para empezar a conversar.</p>
+                    </div>
+                ) : (
+                    <MessagesList />
+                )}
+            </div>
+            <div className="chat-input-area">
+                <form onSubmit={handleCreateMessage}>
+                    <textarea
+                        value={messageText}
+                        onChange={(e) => setMessageText(e.target.value)}
+                        placeholder="Escribe un mensaje..."
+                        rows={1}
+                    />
+                    <button type="submit" className="send-btn" disabled={!messageText.trim()}>➤</button>
+                </form>
+            </div>
+        </>
     )
 }
 
 export default Messages
-
-
-

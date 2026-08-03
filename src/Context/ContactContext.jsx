@@ -178,6 +178,18 @@ function ContactContextProvider() {
         )
     }
 
+    function deleteAllMessagesById(delete_contact_id) {
+        const contacts_modified = contacts.map(
+            (contact) => {
+                if (contact.id === Number(delete_contact_id)) {
+                    contact.messages = []
+                }
+                return contact
+            }
+        )
+        setContacts(contacts_modified)
+    }
+
 let ultimoIdAsignado = 4;
 function createContact(name) {
         
@@ -212,15 +224,32 @@ function createContact(name) {
                 }
                 return contact
             })
-        setContacts (update_contact)
+        setContacts (update_contact)    
     }
-    /* 
-    createContact
-    deleteContactById
-    updateContactById
-    updateMessageById
-    */
-
+    function updateMessageById (message_id, newContent){   
+        const update_message = contacts.map(
+            (contact) => {
+                if(contact.id === Number(contact_id)) {
+                    const updatedMessages = contact.messages.map(
+                        (message) => {
+                            if(message.id === Number(message_id)) {
+                                return {
+                                    ...message,
+                                    content: newContent
+                                }
+                            }
+                            return message
+                        }
+                    )
+                    return {
+                        ...contact,
+                        messages: updatedMessages
+                    }
+                }
+                return contact
+            })
+        setContacts (update_message)    
+    }
 
 
     const provider_values = {
@@ -229,9 +258,11 @@ function createContact(name) {
         deleteMessageById,
         createMessage,
         deleteAllMessages,
+        deleteAllMessagesById,
         createContact,
         deleteContactById,
-        updateContactById
+        updateContactById,
+        updateMessageById
     }
     return (
         <ContactContext.Provider value={provider_values}>

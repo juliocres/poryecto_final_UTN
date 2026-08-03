@@ -1,7 +1,10 @@
 function LoginScreen () {
     return (
-        <div>
-            <h1>Soy la LoginScreen!</h1>
+        <div className="login-screen">
+            <div className="login-logo">💬</div>
+            <h1>WhatsApp Web</h1>
+            <p>Conéctate para acceder a tus conversaciones desde cualquier lugar</p>
+            <button>Iniciar sesión</button>
         </div>
     )
 }
