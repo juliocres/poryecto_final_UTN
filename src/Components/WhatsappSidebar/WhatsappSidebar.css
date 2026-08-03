@@ -98,9 +98,6 @@
 }
 
 .sidebar-main .icon-btn {
-    background: none;
-    border: none;
-    color: inherit;
     font-size: 18px;
     cursor: pointer;
     transition: color 0.2s;
@@ -139,7 +136,7 @@
     color: #8696a0;
 }
 
-/* ── Filter tabs ── */
+
 .sidebar-main .filter-tabs {
     display: flex;
     gap: 4px;
@@ -288,19 +285,10 @@
     color: #e9edef;
 }
 
-.contact-wrapper {
-    position: relative;
-}
-
-.contacts-list .empty-messages {
-    height: auto;
-    padding: 30px 15px;
-}
-
 .sidebar-main .dropdown-menu {
     position: absolute;
-    right: 16px;
-    top: 40px;
+    right: 0;
+    top: 100%;
     background-color: #202c33;
     border: 1px solid #2a3942;
     border-radius: 8px;
