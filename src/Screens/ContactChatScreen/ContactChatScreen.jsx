@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import WhatsappSidebar from '../../Components/WhatsappSidebar/WhatsappSidebar'
 import Messages from '../../Components/Messages/Messages'
@@ -8,11 +8,18 @@ import { ContactContext } from '../../Context/ContactContext'
 
 const ContactChatScreen = () => {
   const { contact_selected, updateContactById } = useContext(ContactContext)
+  const [showChat, setShowChat] = useState(true)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    if (contact_selected) {
+      setShowChat(true)
+    }
+  }, [contact_selected])
+
   return (
-    <div className="app-container show-chat">
-      <WhatsappSidebar />
+    <div className={showChat ? 'app-container show-chat' : 'app-container'}>
+      <WhatsappSidebar onSelectChat={() => setShowChat(true)} />
 
       {!contact_selected ? (
         <ChatEmptyState />
@@ -21,7 +28,10 @@ const ContactChatScreen = () => {
           <ContactHeader 
             contact={contact_selected} 
             onUpdateName={updateContactById} 
-            onBack={() => navigate('/')} 
+            onBack={() => {
+              setShowChat(false)
+              navigate('/')
+            }} 
           />
           <Messages />
         </div>
