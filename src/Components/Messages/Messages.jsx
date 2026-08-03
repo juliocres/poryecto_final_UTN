@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import MessagesList from "./MessagesList"
 import { ContactContext } from "../../Context/ContactContext"
+import "./Messages.css"
 
 function Messages() {
     const {contact_selected, createMessage} = useContext(ContactContext)

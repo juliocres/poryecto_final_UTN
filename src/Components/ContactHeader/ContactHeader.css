@@ -1,0 +1,158 @@
+.chat-header {
+    background-color: #202c33;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    min-height: 59px;
+    border-bottom: 1px solid #222d34;
+    gap: 12px;
+}
+
+.chat-header .back-button {
+    background: none;
+    border: none;
+    color: #aebac1;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px;
+    display: none;
+}
+
+.chat-header .back-button:hover {
+    color: #e9edef;
+}
+
+.chat-header .chat-header-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2a3942;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #aebac1;
+    flex-shrink: 0;
+}
+
+.chat-header .chat-header-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-header .chat-header-info h1 {
+    color: #e9edef;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.chat-header .chat-header-info p {
+    color: #8696a0;
+    font-size: 12px;
+    margin: 0;
+}
+
+.chat-header .chat-header-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.chat-header .header-icon-btn {
+    background: none;
+    border: none;
+    color: #aebac1;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, background-color 0.2s;
+    width: 36px;
+    height: 36px;
+}
+
+.chat-header .header-icon-btn:hover {
+    background-color: #2a3942;
+    color: #e9edef;
+}
+
+/* Formulario de Editar Nombre */
+.chat-header-edit-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.edit-name-input {
+    background-color: #2a3942;
+    border: 1px solid #00a884;
+    color: #e9edef;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+    max-width: 250px;
+}
+
+.edit-name-input:focus {
+    border-color: #00a884;
+    box-shadow: 0 0 0 1px #00a884;
+}
+
+.btn-icon-save,
+.btn-icon-cancel {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #8696a0;
+    padding: 4px 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-icon-save:hover {
+    color: #00a884;
+    background-color: rgba(0, 168, 132, 0.1);
+}
+
+.header-menu-wrapper {
+    position: relative;
+}
+
+.chat-header .msg-dropdown {
+    position: absolute;
+    right: 0;
+    top: 42px;
+    z-index: 100;
+    min-width: 180px;
+}
+
+.btn-icon-cancel:hover {
+    color: #ea4335;
+    background-color: rgba(234, 67, 53, 0.1);
+}
+
+/* Reglas responsivas de 320px a 500px para trasladar los iconos al menú desplegable */
+@media (max-width: 500px) {
+    .header-icon-btn.desktop-only-icon {
+        display: none !important;
+    }
+
+    .mobile-only-menu-item {
+        display: flex !important;
+    }
+}
+
+@media (min-width: 501px) {
+    .mobile-only-menu-item {
+        display: none !important;
+    }
+}

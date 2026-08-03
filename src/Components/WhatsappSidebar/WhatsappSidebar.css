@@ -8,14 +8,14 @@
 
 .sidebar-icon-bar {
     width: 60px;
-    background-color: #1d1f1f;
+    background-color: #202c33;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 12px 0;
     gap: 20px;
     flex-shrink: 0;
-    border: #333636 1px solid;
+    border-right: 1px solid #222d34;
 }
 
 .icon-bar-avatar {
@@ -53,7 +53,7 @@
 }
 
 .icon-bar-btn.active {
-    color: #e9edef;
+    color: #00a884;
     border-left: 3px solid #00a884;
     border-radius: 0;
     width: auto;
@@ -69,13 +69,13 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: #161717;
-    border-right: 1px solid #2a3942;
+    background-color: #111b21;
+    border-right: 1px solid #222d34;
     min-width: 0;
 }
 
 .sidebar-main .sidebar-header {
-    background-color: #161717;
+    background-color: #202c33;
     padding: 10px 16px;
     display: flex;
     align-items: center;
@@ -84,10 +84,11 @@
 }
 
 .sidebar-main .sidebar-header h2 {
-    color: #e9edef;
-    font-size: 16px;
-    font-weight: 500;
+    color: #00a884;
+    font-size: 20px;
+    font-weight: 700;
     margin: 0;
+    letter-spacing: -0.3px;
 }
 
 .sidebar-main .header-icons {
@@ -97,6 +98,9 @@
 }
 
 .sidebar-main .icon-btn {
+    background: none;
+    border: none;
+    color: inherit;
     font-size: 18px;
     cursor: pointer;
     transition: color 0.2s;
@@ -110,9 +114,9 @@
 
 /* ── Search bar ── */
 .sidebar-main .search-bar {
-    background-color: #161717;
+    background-color: #111b21;
     padding: 8px 12px;
-    border-bottom: 1px solid #2a3942;
+    border-bottom: 1px solid #222d34;
 }
 
 .sidebar-main .search-bar input {
@@ -140,8 +144,8 @@
     display: flex;
     gap: 4px;
     padding: 8px 12px;
-    border-bottom: 1px solid #161717;
-    background-color: #161717;
+    border-bottom: 1px solid #222d34;
+    background-color: #111b21;
     overflow-x: auto;
 }
 
@@ -284,10 +288,19 @@
     color: #e9edef;
 }
 
+.contact-wrapper {
+    position: relative;
+}
+
+.contacts-list .empty-messages {
+    height: auto;
+    padding: 30px 15px;
+}
+
 .sidebar-main .dropdown-menu {
     position: absolute;
-    right: 0;
-    top: 100%;
+    right: 16px;
+    top: 40px;
     background-color: #202c33;
     border: 1px solid #2a3942;
     border-radius: 8px;
@@ -325,4 +338,36 @@
 
 .sidebar-main hr {
     display: none;
+}
+
+@media (max-width: 480px) {
+    .sidebar-icon-bar {
+        width: 48px;
+        gap: 12px;
+        padding: 8px 0;
+    }
+
+    .icon-bar-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .sidebar-main .contact-item {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .sidebar-main .contact-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .sidebar-main .contact-info .contact-name {
+        font-size: 15px;
+    }
+
+    .sidebar-main .contact-info .contact-preview {
+        font-size: 12px;
+    }
 }

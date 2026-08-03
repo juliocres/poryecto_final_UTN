@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { ContactContext } from '../../Context/ContactContext'
+import './NewContactForm.css'
 
 const NewContactForm = () => {
     const { createContact } = useContext(ContactContext)
