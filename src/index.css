@@ -8,6 +8,7 @@ html,
 body,
 #root {
     height: 100%;
+    height: 100dvh;
     width: 100%;
     overflow: hidden;
 }
@@ -25,7 +26,8 @@ a {
 
 .app-container {
     display: flex;
-    height: 100vh;
+    height: 100%;
+    height: 100dvh;
     width: 100vw;
     background-color: #111b21;
 }
@@ -36,6 +38,8 @@ a {
     flex-direction: column;
     background-color: #222e35;
     min-width: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
 
