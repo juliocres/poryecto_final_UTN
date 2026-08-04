@@ -98,14 +98,24 @@
 }
 
 .sidebar-main .icon-btn {
-    font-size: 18px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #aebac1;
+    font-size: 20px;
     cursor: pointer;
-    transition: color 0.2s;
+    padding: 6px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .sidebar-main .icon-btn:hover {
+    background-color: #2a3942;
     color: #e9edef;
 }
 
