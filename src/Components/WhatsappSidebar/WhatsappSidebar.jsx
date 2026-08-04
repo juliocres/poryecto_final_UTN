@@ -180,14 +180,14 @@ return (
                 </svg>
             </button>
             <button className="icon-btn" title="Más opciones">
-              ⋮
+                ⋮
             </button>
           </div>
         </div>
 
         {showNewContactForm && <NewContactForm />}
         <div className="search-bar">
-          <input
+            <input
             type="text"
             placeholder="Buscar o empezar un nuevo chat"
             value={searchTerm}
